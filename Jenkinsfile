@@ -4,13 +4,18 @@ pipeline {
     stages('Construção da imagem'){
         stage('Checkout Source') {
             steps{
-                git url: 'https://github.com/hubpagec/password_generate', branch: 'main'
+                script {
+                    git branch: 'main',
+                        credentialsId: 'Credential ID',
+                        url: 'https://github.com/hubpagec/password_generate.git'
+                }
             }
         }
+
         stage('Build Docker image') {
             steps{
                 script{
-                    dockerapp = docker.build("devops/passwod_generate:${env.BUILD}",
+                    dockerapp = docker.build("devops/password_generate:${env.BUILD}",
                         '-f ./Dokerfile .')
                 }
 
