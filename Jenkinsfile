@@ -4,7 +4,7 @@ pipeline {
     stages('Construção da imagem'){
         stage('Checkout Source') {
             steps{
-                git url: 'https://github.com/hubpagec/password_generate', branch: 'master'
+                git url: 'https://github.com/hubpagec/password_generate', branch: 'main'
             }
         }
         stage('Build Docker image') {
