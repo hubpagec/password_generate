@@ -1,7 +1,7 @@
 pipeline {
     agent any
 
-    stages{
+    stages('Construção da imagem'){
         stage('Checkout Source') {
             steps{
                 git url: 'https://github.com/hubpagec/password_generate', branch: 'master'
